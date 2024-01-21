@@ -1,10 +1,38 @@
+let modal = document.querySelector(".modal");
+let trigger = document.querySelector(".trigger");
+let closeButton = document.querySelector(".close-button");
+
+function toggleModal() {
+    modal.classList.toggle("show-modal");
+}
+
+function windowOnClick(event) {
+    if (event.target === modal) {
+        toggleModal();
+    }
+}
+
+trigger.addEventListener("click", toggleModal);
+closeButton.addEventListener("click", toggleModal);
+window.addEventListener("click", windowOnClick);
+
+
+function userSubmit() {
+    let variable = document.getElementById('input_id').value;
+    toggleModal();
+
+    
+    console.log(variable); // HERE IS WHERE MATH FUNCTION SHOULD BE
+    variable;
+  }
+
 const container = document.getElementById("container");
+
 
 function makeGrid() {
     for (x = 0; x < 16; x++) {
         let cell = document.createElement('div');
         cell.className = 'cell';
-        //cell.id = 'cell';
         container.appendChild(cell);
     }
 };
@@ -51,6 +79,7 @@ eraser.addEventListener("click", () => {
     hoverElement.forEach(equip);
 
 });
+
 
 //clear
 let clear = document.getElementById('clear');
