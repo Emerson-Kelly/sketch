@@ -19,33 +19,36 @@ callFunction(makeGrid, 16);
 
 const hoverElement = document.querySelectorAll('.cell');
 
-hoverElement.forEach(hoverElement => {
-    hoverElement.addEventListener('mouseover', () => {
-        hoverElement.style.backgroundColor = 'black';
+
+const makeBlack = event => event.target.style.backgroundColor = "black";
+function equip(hoverElement) {
+    hoverElement.addEventListener("mousedown", makeBlack);
+    hoverElement.addEventListener("mouseover", event => {
+        if (event.buttons == 1) makeBlack(event);
     });
-});
+}
+hoverElement.forEach(equip);
+
+
 
 //pen
 let pen = document.getElementById('pen');
 pen.addEventListener("click", () => {
-
-    hoverElement.forEach(hoverElement => {
-        hoverElement.addEventListener('mouseover', () => {
-            hoverElement.style.backgroundColor = 'black';
-        });
-    });
-
+    hoverElement.forEach(equip);
 });
 
 //eraser
 let eraser = document.getElementById('eraser');
 eraser.addEventListener("click", () => {
 
-    hoverElement.forEach(hoverElement => {
-        hoverElement.addEventListener('mouseover', () => {
-            hoverElement.style.backgroundColor = 'white';
+    const makeWhite = event => event.target.style.backgroundColor = "white";
+    function equip(hoverElement) {
+        hoverElement.addEventListener("mousedown", makeWhite);
+        hoverElement.addEventListener("mouseover", event => {
+            if (event.buttons == 1) makeWhite(event);
         });
-    });
+    }
+    hoverElement.forEach(equip);
 
 });
 
