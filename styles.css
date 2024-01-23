@@ -17,18 +17,20 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 500px;
-    height: 500px;
-
+    width: 500px; /* Fixed width for the container */
+    height: 500px; /* Fixed height for the container */
     justify-content: center;
     margin: auto;
 }
 
 .cell {
-    outline: 1px solid;
-    margin-top: 1px;
-    margin-left: 1px;
-    flex-basis: 5.88%;
+    outline: 0.3px solid;
+    /* Flex-basis is not set here to allow dynamic sizing */
+}
+
+/* Add a class to adjust cell size dynamically */
+.cell-dynamic-size {
+    flex-basis: calc(100% / var(--gridSize)); /* Dynamic sizing based on the number of cells */
 }
 
 .tools {

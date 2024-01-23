@@ -17,25 +17,54 @@ closeButton.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
 
 
-function userSubmit() {
-    let variable = document.getElementById('input_id').value;
-    toggleModal();
-
-    
-    console.log(variable); // HERE IS WHERE MATH FUNCTION SHOULD BE
-    variable;
-  }
-
 const container = document.getElementById("container");
 
+let cells = document.querySelectorAll("cell");
+
+
+
+function calculateFlexBasisPercentage(element) {
+  let variable = document.getElementById('input_id').value;
+
+   let percentage = 100 / variable;
+    
+    element.style.flexBasis = percentage + "%";
+  }
+
+function userSubmit() {
+   let variable = document.getElementById('input_id').value;
+    toggleModal();
+    
+   calculateFlexBasisPercentage(modal);
+    
+
+
+    //CSS math function here
+    callFunction(makeGrid, variable);
+    console.log(variable); // Delete after function created
+    
+  }
 
 function makeGrid() {
-    for (x = 0; x < 16; x++) {
+    let gridSize = parseInt(document.getElementById('input_id').value) || 16;
+    container.innerHTML = ''; // Clear existing content
+    let maxContainerSize = 500;
+
+    let cellSize = Math.min(maxContainerSize / gridSize, maxContainerSize / gridSize);
+    let containerSize = cellSize * gridSize;
+
+    for (let i = 0; i < gridSize * gridSize; i++) {
         let cell = document.createElement('div');
         cell.className = 'cell';
+        cell.style.width = cellSize + 'px';
+        cell.style.height = cellSize + 'px';
         container.appendChild(cell);
     }
+
+    container.style.width = containerSize + 'px';
+    container.style.height = containerSize + 'px';
 };
+
 
 const callFunction = (func, n) => {
     for (let i = 1; i <= n; i++) {
