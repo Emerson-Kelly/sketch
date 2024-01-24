@@ -32,6 +32,13 @@ function userSubmit() {
     callFunction(makeGrid, variable);
 }
 
+// Add an event listener for the "Enter" key press
+document.getElementById('input_id').addEventListener('keyup', function(event) {
+    if (event.key === 'Enter') {
+        userSubmit(); // Call userSubmit function when "Enter" is pressed
+    }
+});
+
 function makeGrid() {
     let gridSize = parseInt(document.getElementById('input_id').value) || 16;
     container.innerHTML = ''; // Clear existing content
@@ -55,10 +62,15 @@ function makeGrid() {
 
 function equip(cell) {
     cell.addEventListener("mousedown", makeBlack);
+    cell.addEventListener("mousedown", event => {
+        if (isErasing && event.buttons == 1) makeWhite(event);
+        else if (event.buttons == 1) makeBlack(event);
+    });
     cell.addEventListener("mouseover", event => {
         if (isErasing && event.buttons == 1) makeWhite(event);
         else if (event.buttons == 1) makeBlack(event);
     });
+   
 }
 
 const hoverElement = document.querySelectorAll('.cell');

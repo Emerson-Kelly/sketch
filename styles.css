@@ -21,10 +21,12 @@ body {
     height: 500px; /* Fixed height for the container */
     justify-content: center;
     margin: auto;
+    border: 1px solid;
 }
 
 .cell {
-    outline: 0.3px solid;
+    outline:0.05px solid lightgray;
+    
     /* Flex-basis is not set here to allow dynamic sizing */
 }
 
