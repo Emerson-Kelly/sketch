@@ -85,17 +85,18 @@ eraser.addEventListener("click", () => {
     isErasing = true;
 });
 
-// clear
+//clear
 let clear = document.getElementById('clear');
 clear.addEventListener("click", () => {
     console.log("Clear button clicked");
-    hoverElement.forEach(cell => {
-        console.log("Setting cell to white:", cell);
-        cell.style.removeProperty('background-color');
-        cell.style.backgroundColor = 'white';
-        cell.style.borderColor = 'black';
+    const hoverElements = document.querySelectorAll('.cell');
+    hoverElements.forEach(cell => {
+        cell.style.backgroundColor = 'transparent';
+        cell.style.borderColor = 'black'; // Set border color if needed
     });
 });
+
+
 
 
 
