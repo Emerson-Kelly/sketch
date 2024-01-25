@@ -54,8 +54,8 @@ document.getElementById('input_id').addEventListener('keyup', function (event) {
 function makeGrid() {
     let gridSize = parseInt(document.getElementById('input_id').value) || 16;
     container.innerHTML = ''; // Clear existing content
-    
-    let maxContainerSize = 750;
+
+    let maxContainerSize = 500;
 
     let cellSize = Math.min(maxContainerSize / gridSize, maxContainerSize / gridSize);
     let containerSize = cellSize * gridSize;
