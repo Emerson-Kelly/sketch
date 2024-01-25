@@ -19,16 +19,16 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 500px;
-    height: 500px;
+    width: 750px;
+    height: 750px;
     justify-content: center;
     margin: auto;
-    border: 1px solid #ced4da;
+    border: 1px solid #e0e0e0; /* Light border color */
+    background-color: #fff; /* White background */
 }
 
 .cell {
-    outline: 0.1px solid #ced4da; /* Light border color */
-  
+    outline: 0.1px solid #e0e0e0; /* Light border color */
     box-sizing: border-box;
 }
 
@@ -48,15 +48,27 @@ body {
     padding: 0.5rem 1rem;
     font-size: 14px;
     cursor: pointer;
-    border: 1px solid #007bff; /* Primary color for button border */
     border-radius: 5px;
-    background-color: #007bff; /* Primary color for button background */
-    color: #fff; /* White text color */
+    color: #fff;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
+    background-color: #003366; 
+}
+
+.color-picker {
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #fff; /* White text color */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.color-picker:hover {
+   /* background-color: #458f00;*/
 }
 
 .modal {
@@ -92,12 +104,12 @@ body {
     text-align: center;
     cursor: pointer;
     border-radius: 50%;
-    background-color: #f8f9fa; /* Light background color */
+    background-color: #f8f9fa; 
     transition: background-color 0.3s;
 }
 
 .close-button:hover {
-    background-color: #e9ecef; /* Slightly darker shade on hover */
+   /* background-color: #e9ecef; */
 }
 
 .show-modal {

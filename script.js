@@ -19,6 +19,12 @@ window.addEventListener("click", windowOnClick);
 
 const container = document.getElementById("container");
 let isErasing = false; // Flag to track erasing state
+let penColor = "#000000"; // Default pen color
+
+// Color picker input event listener
+document.getElementById('colorPicker').addEventListener('input', (event) => {
+    penColor = event.target.value; // Update penColor with the selected color
+});
 
 function calculateFlexBasisPercentage(element) {
     let variable = document.getElementById('input_id').value;
@@ -28,19 +34,18 @@ function calculateFlexBasisPercentage(element) {
 
 function userSubmit() {
     let variable = document.getElementById('input_id').value;
-if (variable >= 101) {
-    document.getElementById('alert').style.color = "red";
-   return;
-}
-else {
-    toggleModal();
-    calculateFlexBasisPercentage(container);
-    callFunction(makeGrid, variable);
-}
+    if (variable >= 101) {
+        document.getElementById('alert').style.color = "red";
+        return;
+    } else {
+        toggleModal();
+        calculateFlexBasisPercentage(container);
+        callFunction(makeGrid, variable);
+    }
 }
 
 // Add an event listener for the "Enter" key press
-document.getElementById('input_id').addEventListener('keyup', function(event) {
+document.getElementById('input_id').addEventListener('keyup', function (event) {
     if (event.key === 'Enter') {
         userSubmit(); // Call userSubmit function when "Enter" is pressed
     }
@@ -49,7 +54,8 @@ document.getElementById('input_id').addEventListener('keyup', function(event) {
 function makeGrid() {
     let gridSize = parseInt(document.getElementById('input_id').value) || 16;
     container.innerHTML = ''; // Clear existing content
-    let maxContainerSize = 500;
+    
+    let maxContainerSize = 750;
 
     let cellSize = Math.min(maxContainerSize / gridSize, maxContainerSize / gridSize);
     let containerSize = cellSize * gridSize;
@@ -77,14 +83,14 @@ function equip(cell) {
         if (isErasing && event.buttons == 1) makeWhite(event);
         else if (event.buttons == 1) makeBlack(event);
     });
-   
+
 }
 
 const hoverElement = document.querySelectorAll('.cell');
 
 const makeBlack = event => {
-    event.target.style.backgroundColor = "black";
-    event.target.style.borderColor = "black"; // Set the border color as well
+    event.target.style.backgroundColor = penColor; // Use penColor as the background color
+    event.target.style.borderColor = penColor; // Set the border color as well
 };
 
 const makeWhite = event => {
@@ -114,11 +120,6 @@ clear.addEventListener("click", () => {
         cell.style.borderColor = 'black'; // Set border color if needed
     });
 });
-
-
-
-
-
 
 const callFunction = (func, n) => {
     for (let i = 1; i <= n; i++) {
