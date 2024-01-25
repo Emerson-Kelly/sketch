@@ -4,6 +4,7 @@ let closeButton = document.querySelector(".close-button");
 
 function toggleModal() {
     modal.classList.toggle("show-modal");
+    document.getElementById('alert').style.color = "black";
 }
 
 function windowOnClick(event) {
@@ -27,9 +28,15 @@ function calculateFlexBasisPercentage(element) {
 
 function userSubmit() {
     let variable = document.getElementById('input_id').value;
+if (variable >= 101) {
+    document.getElementById('alert').style.color = "red";
+   return;
+}
+else {
     toggleModal();
     calculateFlexBasisPercentage(container);
     callFunction(makeGrid, variable);
+}
 }
 
 // Add an event listener for the "Enter" key press
