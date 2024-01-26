@@ -18,12 +18,11 @@ closeButton.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
 
 const container = document.getElementById("container");
-let isErasing = false; // Flag to track erasing state
-let penColor = "#000000"; // Default pen color
+let isErasing = false;
+let penColor = "#000000";
 
-// Color picker input event listener
 document.getElementById('colorPicker').addEventListener('input', (event) => {
-    penColor = event.target.value; // Update penColor with the selected color
+    penColor = event.target.value;
 });
 
 function calculateFlexBasisPercentage(element) {
@@ -44,16 +43,15 @@ function userSubmit() {
     }
 }
 
-// Add an event listener for the "Enter" key press
 document.getElementById('input_id').addEventListener('keyup', function (event) {
     if (event.key === 'Enter') {
-        userSubmit(); // Call userSubmit function when "Enter" is pressed
+        userSubmit();
     }
 });
 
 function makeGrid() {
     let gridSize = parseInt(document.getElementById('input_id').value) || 16;
-    container.innerHTML = ''; // Clear existing content
+    container.innerHTML = '';
 
     let maxContainerSize = 500;
 
@@ -66,7 +64,7 @@ function makeGrid() {
         cell.style.width = cellSize + 'px';
         cell.style.height = cellSize + 'px';
         container.appendChild(cell);
-        equip(cell); // Apply event listener to the new cell
+        equip(cell);
     }
 
     container.style.width = containerSize + 'px';
@@ -89,35 +87,32 @@ function equip(cell) {
 const hoverElement = document.querySelectorAll('.cell');
 
 const makeBlack = event => {
-    event.target.style.backgroundColor = penColor; // Use penColor as the background color
-    event.target.style.borderColor = penColor; // Set the border color as well
+    event.target.style.backgroundColor = penColor;
+    event.target.style.borderColor = penColor;
 };
 
 const makeWhite = event => {
-    event.target.style.backgroundColor = 'transparent'; // Remove the background color
+    event.target.style.backgroundColor = 'transparent';
 };
 
-//pen
 let pen = document.getElementById('pen');
 pen.addEventListener("click", () => {
     isErasing = false;
     hoverElement.forEach(equip);
 });
 
-// eraser
 let eraser = document.getElementById('eraser');
 eraser.addEventListener("click", () => {
     isErasing = true;
 });
 
-//clear
 let clear = document.getElementById('clear');
 clear.addEventListener("click", () => {
     console.log("Clear button clicked");
     const hoverElements = document.querySelectorAll('.cell');
     hoverElements.forEach(cell => {
         cell.style.backgroundColor = 'transparent';
-        cell.style.borderColor = 'black'; // Set border color if needed
+        cell.style.borderColor = 'black';
     });
 });
 

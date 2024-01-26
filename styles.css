@@ -5,7 +5,7 @@ body {
     align-items: center;
     justify-content: center;
     font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa; /* Light background color */
+    background-color: #f8f9fa;
     margin: 0;
 }
 
@@ -23,16 +23,15 @@ body {
     height: 750px;
     justify-content: center;
     margin: auto;
-    border: 1px solid #e0e0e0; /* Light border color */
-    background-color: #fff; /* White background */
+    border: 1px solid #e0e0e0;
+    background-color: #fff;
 }
 
 .cell {
-    outline: 0.1px solid #e0e0e0; /* Light border color */
+    outline: 0.1px solid #e0e0e0;
     box-sizing: border-box;
 }
 
-/* Add a class to adjust cell size dynamically */
 .cell-dynamic-size {
     flex-basis: calc(100% / var(--gridSize));
 }
@@ -54,7 +53,7 @@ body {
 }
 
 .button:hover {
-    background-color: #003366; 
+    background-color: #003366;
 }
 
 .color-picker {
@@ -63,12 +62,12 @@ body {
     font-size: 14px;
     cursor: pointer;
     border-radius: 5px;
-    color: #fff; /* White text color */
+    color: #fff;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .color-picker:hover {
-   /* background-color: #458f00;*/
+    /* background-color: #458f00;*/
 }
 
 .modal {
@@ -104,12 +103,12 @@ body {
     text-align: center;
     cursor: pointer;
     border-radius: 50%;
-    background-color: #f8f9fa; 
+    background-color: #f8f9fa;
     transition: background-color 0.3s;
 }
 
 .close-button:hover {
-   /* background-color: #e9ecef; */
+    /* background-color: #e9ecef; */
 }
 
 .show-modal {
